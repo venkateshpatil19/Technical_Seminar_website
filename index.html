@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset    @keyframes celestial {
+      0% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+    }
+
+    h1, h2, h3 {meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employment-Centric Hypothesis Testing Framework</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #DB2777;      /* Deep Pink */
+      --primary-dark: #9D174D;
+      --accent: #4F46E5;       /* Indigo */
+      --accent-light: #818CF8;
+      --bg: #0F172A;          /* Deep Space */
+      --text: #F1F5F9;        /* Bright Text */
+      --muted: #94A3B8;       /* Muted Text */
+      --footer-bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.95);
+      --glass: rgba(219, 39, 119, 0.15);
+      --subtle-accent: #1E293B; /* Subtle Highlight */
+      --highlight: #4F46E5;    /* Indigo */
+      --celestial-pink: #DB2777; /* Deep Pink */
+      --celestial-purple: #7E22CE; /* Purple */
+      --celestial-blue: #1E40AF; /* Deep Blue */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      background-image: 
+        linear-gradient(135deg, rgba(219, 39, 119, 0.85) 0%, rgba(126, 34, 206, 0.85) 50%, rgba(30, 64, 175, 0.85) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(219, 39, 119, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(30, 64, 175, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8) 0%, transparent 100%);
+      backdrop-filter: blur(100px);
+      pointer-events: none;
+      z-index: -1;
+      animation: celestial 30s ease infinite;
+    }
+
+    @keyframes celestial {
+      0% {
+        opacity: 0.5;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 0.7;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 0.5;
+        transform: translateY(0);
+      }
+    }
+
+    h1, h2, h3 {
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, rgba(139, 115, 85, 0.15), rgba(82, 115, 85, 0.15));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(44, 37, 34, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(139, 115, 85, 0.1), transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Announcement Typing Animation */
+    .announcement-typing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5rem auto 1.5rem auto;
+      padding: 1.5rem 3rem;
+      background: rgba(255,255,255,0.10);
+      border-radius: 1.2rem;
+      box-shadow: 0 0 24px 6px var(--primary), 0 0 0 0 #fff3;
+      font-size: 1.4rem;
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--text);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      position: relative;
+      animation: pulse-glow 1.5s infinite alternate;
+      max-width: 800px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 24px 6px var(--primary), 0 0 0 0 #fff3;
+      }
+      100% {
+        box-shadow: 0 0 36px 12px var(--accent), 0 0 16px 8px #fff3;
+      }
+    }
+    #typing-text::after {
+      content: '|';
+      animation: blink-cursor 0.8s steps(1) infinite;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+    @keyframes blink-cursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Components Section */
+    .section {
+      padding: 2rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .component-card {
+      background: rgba(13, 25, 48, 0.8);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(44, 37, 34, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .component-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .component-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 12px 40px rgba(44, 37, 34, 0.15);
+    }
+
+    .component-card:hover::before {
+      opacity: 1;
+    }
+
+    .component-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .component-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    /* Applications Section */
+    .applications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .application-card {
+      background: rgba(13, 25, 48, 0.7);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(44, 37, 34, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .application-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1)
+      );
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .application-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(44, 37, 34, 0.12);
+    }
+
+    .application-card:hover::after {
+      opacity: 1;
+    }
+
+    .application-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .application-card ul {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+
+    .application-card li {
+      position: relative;
+      margin-bottom: 0.5rem;
+      color: var(--muted);
+    }
+
+    .application-card li::before {
+      content: "→";
+      position: absolute;
+      left: -1.5rem;
+      color: var(--accent);
+    }
+
+    /* Outcomes Section */
+    .outcomes-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(13, 25, 48, 0.8);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(44, 37, 34, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .outcomes-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        rgba(139, 115, 85, 0.05),
+        rgba(82, 115, 85, 0.05)
+      );
+      pointer-events: none;
+    }
+
+    .outcome-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--subtle-accent);
+    }
+
+    .outcome-item:last-child {
+      border-bottom: none;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 2rem 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(139, 115, 85, 0.9);
+      color: white;
+      padding: 1rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.2)
+      );
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(139, 115, 85, 0.2);
+      background: rgba(139, 115, 85, 1);
+    }
+
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn i {
+      font-size: 1.2rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .footer h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer h3 i {
+      color: var(--accent);
+    }
+
+    .footer p {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .research-status {
+      color: var(--accent) !important;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .contribute {
+      color: var(--primary) !important;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Employment-Centric Hypothesis Testing Framework</h1>
+      <p class="subtitle">Powered by LangChain & Object-Inspired Modelling</p>
+      <p>A sophisticated framework for employment analytics, combining natural language processing with structured modeling to deliver actionable workforce insights.</p>
+    </div>
+  </section>
+
+  <!-- Announcement Typing Animation -->
+  <div class="announcement-typing">
+    <span id="typing-text"></span>
+  </div>
+
+  <!-- Components Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Framework Components</h2>
+      <div class="component-grid">
+        <div class="component-card">
+          <i class="fas fa-language"></i>
+          <h3>LangChain</h3>
+          <p>Enables natural language-based hypothesis formulation and interaction for intuitive analysis.</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-cubes"></i>
+          <h3>Object-Inspired Modelling</h3>
+          <p>Structures employment entities including skills, industries, demographics, and job roles.</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-cog"></i>
+          <h3>Optimization Algorithms</h3>
+          <p>Improves accuracy, efficiency, and scalability of hypothesis validation processes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Key Applications</h2>
+      <div class="applications-grid">
+        <div class="application-card">
+          <h3>Policymakers</h3>
+          <ul>
+            <li>Policy formulation</li>
+            <li>Workforce forecasting</li>
+          </ul>
+        </div>
+        <div class="application-card">
+          <h3>HR Professionals</h3>
+          <ul>
+            <li>Recruitment analytics</li>
+            <li>Skill demand analysis</li>
+          </ul>
+        </div>
+        <div class="application-card">
+          <h3>Organizations</h3>
+          <ul>
+            <li>Strategic workforce planning</li>
+            <li>Talent management</li>
+          </ul>
+        </div>
+        <div class="application-card">
+          <h3>Researchers</h3>
+          <ul>
+            <li>Employment trend studies</li>
+            <li>Hypothesis validation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Project Outcomes</h2>
+      <div class="outcomes-container">
+        <div class="outcome-item">
+          <h3>Automated Framework</h3>
+          <p>A structured, automated, and scalable framework for employment-focused hypothesis testing.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Enhanced Validation</h3>
+          <p>Faster and more accurate validation of workforce-related hypotheses.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Future Foundation</h3>
+          <p>Foundation for future AI-driven employment analytics platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <a href="https://forms.gle/V1pGAQQ35KnBLSJ26" target="_blank" class="btn">
+        <i class="fas fa-file-alt"></i> Submit Your Response
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="research-info">
+          <h3><i class="fas fa-laptop-code"></i> Technical Project</h3>
+          <p>Employment-Centric Hypothesis Testing Framework</p>
+          <p class="research-status">Technical Seminar & Final Year Project</p>
+        </div>
+        <div class="institution-info">
+          <h3><i class="fas fa-university"></i> Institution</h3>
+          <p>Pimpri Chinchwad College of Engineering</p>
+          <p>Department of Computer Engineering</p>
+        </div>
+        <div class="team-info">
+          <h3><i class="fas fa-users"></i> Project Team</h3>
+          <p>Aryan Patil</p>
+          <p>Venkatesh Patil</p>
+          <p>Atharva Kshirsagar</p>
+          <p>Amit Jirobi</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Employment-Centric Hypothesis Testing Framework</p>
+        <p class="contribute">Technical Seminar Project & Final Year Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .footer h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer h3 i {
+      color: var(--accent);
+    }
+
+    .footer p {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .research-status {
+      color: var(--accent) !important;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .contribute {
+      color: var(--primary) !important;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
+
+  <script>
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Typing animation for announcement
+    const typingText = "At this stage, we are focusing on Data Collection. Please support us by submitting your data using the button provided.";
+    const typingElement = document.getElementById('typing-text');
+    let typingIndex = 0;
+    function typeAnnouncement() {
+      if (typingIndex <= typingText.length) {
+        typingElement.textContent = typingText.slice(0, typingIndex);
+        typingIndex++;
+        setTimeout(typeAnnouncement, 32);
+      }
+    }
+    if (typingElement) typeAnnouncement();
+  </script>
+</body>
+</html>
