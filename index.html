@@ -468,6 +468,15 @@
     <span id="typing-text"></span>
   </div>
 
+  <div style="text-align:center; margin: 1rem 0;">
+  <a href="https://forms.gle/NxsrVUmiCTts35a99" target="_blank" 
+     class="btn" 
+     style="margin-top:1rem; display:inline-flex; justify-content:center; align-items:center; background:linear-gradient(90deg, var(--primary), var(--accent)); color:var(--text); font-weight:600; font-size:1.1rem;">
+    <i class="fas fa-file-alt"></i> Help Us with Data Collection
+  </a>
+</div>
+
+
   <!-- Components Section -->
   <section class="section">
     <div class="container">
@@ -553,9 +562,22 @@
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
-      <a href="https://forms.gle/V1pGAQQ35KnBLSJ26" target="_blank" class="btn">
-        <i class="fas fa-file-alt"></i> Submit Your Response
-      </a>
+      <form id="query-form" class="query-form">
+        <h2 class="query-form-title">Send a Query</h2>
+        <div class="query-form-group">
+          <label for="query-name">Name</label>
+          <input type="text" id="query-name" name="name" required>
+        </div>
+        <div class="query-form-group">
+          <label for="query-email">Email</label>
+          <input type="email" id="query-email" name="email" required>
+        </div>
+        <div class="query-form-group">
+          <label for="query-message">Message</label>
+          <textarea id="query-message" name="message" required rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Send Query</button>
+      </form>
     </div>
   </section>
 
@@ -589,6 +611,84 @@
   </footer>
 
   <style>
+    /* Query Form Styling */
+    .query-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(44,37,34,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text);
+    }
+    .query-form-title {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 2rem;
+    }
+    .query-form-group {
+      margin-bottom: 1.2rem;
+    }
+    .query-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .query-form input,
+    .query-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--accent-light);
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--text);
+      font-size: 1rem;
+      transition: border 0.2s;
+    }
+    .query-form input:focus,
+    .query-form textarea:focus {
+      outline: none;
+      border: 1.5px solid var(--primary);
+      background: rgba(30, 41, 59, 0.95);
+    }
+    .query-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .query-form .btn {
+      margin-top: 0.5rem;
+    }
+
+    /* Query Sent Popup Styling */
+    .query-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--text);
+      padding: 2rem 2.5rem;
+      border-radius: 1.2rem;
+      font-size: 1.4rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      box-shadow: 0 8px 32px rgba(44,37,34,0.18);
+      z-index: 9999;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: popup-fade-in 0.3s;
+    }
+    @keyframes popup-fade-in {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
     .footer-content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -661,6 +761,19 @@
       }
     }
     if (typingElement) typeAnnouncement();
+
+    // Supabase Query Form Integration
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('query-form');
+      if (form) {
+        form.addEventListener('submit', window.submitQueryForm);
+      }
+    });
   </script>
+
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+  <script type="module" src="./supabaseConfig.js"></script>
+  <script type="module" src="./queryForm.js"></script>
 </body>
 </html>
