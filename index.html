@@ -266,7 +266,7 @@
       padding: 1.5rem 2.5rem;
       background: linear-gradient(90deg, #fff 0%, #E0ECFF 60%, #E3DFFF 100%);
       border-radius: 2.2rem;
-      box-shadow: 0 0 32px 10px var(--accent-light), 0 0 0 0 #fff3;
+      box-shadow: 0 0 12px 2px var(--accent-light), 0 0 0 0 #fff3;
       font-size: 1.35rem;
       font-family: 'Orbitron', 'Manrope', 'Inter', sans-serif;
       color: var(--primary);
@@ -292,8 +292,8 @@
       filter: blur(4px);
     }
     @keyframes pulse-glow {
-      0% { box-shadow: 0 0 32px 10px var(--accent-light), 0 0 0 0 #fff3; }
-      100% { box-shadow: 0 0 48px 18px var(--primary), 0 0 24px 12px #fff3; }
+      0% { box-shadow: 0 0 12px 2px var(--accent-light), 0 0 0 0 #fff3; }
+      100% { box-shadow: 0 0 18px 6px var(--primary), 0 0 8px 4px #fff3; }
     }
     #typing-text::after {
       content: '|';
@@ -330,9 +330,9 @@
       animation: pulse 1.8s infinite;
     }
     @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 15px var(--primary); }
-      50% { transform: scale(1.05); box-shadow: 0 0 25px var(--accent); }
-      100% { transform: scale(1); box-shadow: 0 0 15px var(--primary); }
+      0% { transform: scale(1); box-shadow: 0 0 6px var(--primary); }
+      50% { transform: scale(1.05); box-shadow: 0 0 10px var(--accent); }
+      100% { transform: scale(1); box-shadow: 0 0 6px var(--primary); }
     }
     .btn:hover, .btn:focus {
       background: linear-gradient(90deg, var(--accent), var(--primary));
