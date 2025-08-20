@@ -3,6 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-title">Technical Seminar </div>
+        <div class="nav-subtitle">Employment-Centric Hypothesis Testing Framework</div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#framework">Home</a></li>
+        <li><a href="#framework1">Framework</a></li>
+        <li><a href="#applications1">Applications</a></li>
+        <li><a href="#outcomes1">Outcomes</a></li>
+        <li><a href="#cta1">Contact</a></li>
+      </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
   <title>Employment-Centric Hypothesis Testing Framework</title>
   <!-- Trending 2025 Font: Inter + Manrope (for headings) + Orbitron for announcement -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
@@ -28,7 +48,125 @@
       --subtle-accent: #E0ECFF;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Glassmorphism Navbar with shadow */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(255, 255, 255, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      z-index: 999;
+      box-shadow: 0 8px 32px 0 rgba(79,70,229,0.10), 0 1.5px 8px 0 rgba(124,58,237,0.07);
+      transition: box-shadow 0.2s;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.1;
+    }
+    .nav-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.01em;
+    }
+    .nav-subtitle {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-top: 0.1rem;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      transition: max-height 0.3s ease-in-out;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1.05rem;
+      transition: color 0.2s, border-bottom 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* Mobile Menu */
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--primary);
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.8rem 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        border-radius: 0 0 1rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 8px 32px 0 rgba(79,70,229,0.10);
+        transition: max-height 0.3s cubic-bezier(.4,2,.3,1);
+        z-index: 998;
+        padding: 0;
+      }
+
+      .nav-links.show {
+        max-height: 500px;
+        padding: 1rem 0;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
 
     html, body {
       min-height: 100%;
@@ -577,7 +715,7 @@
 </head>
 <body>
   <!-- Hero Section -->
-  <section class="hero">
+  <section id="framework" class="hero">
     <div class="hero-content">
       <h1>Employment-Centric Hypothesis Testing Framework</h1>
       <p class="subtitle">Powered by LangChain & Object-Inspired Modelling</p>
@@ -599,7 +737,7 @@
   </div>
 
   <!-- Components Section -->
-  <section class="section">
+  <section id="framework1" class="section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Framework Components</h2>
       <div class="component-grid">
@@ -623,7 +761,7 @@
   </section>
 
   <!-- Applications Section -->
-  <section class="section">
+  <section id="applications1" class="section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Key Applications</h2>
       <div class="applications-grid">
@@ -660,7 +798,7 @@
   </section>
 
   <!-- Outcomes Section -->
-  <section class="section">
+  <section id="outcomes1" class="section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Project Outcomes</h2>
       <div class="outcomes-container" data-aos="fade-up" data-aos-delay="100">
@@ -681,7 +819,7 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
+  <section id="cta1" class="cta-section">
     <div class="container">
       <form id="query-form" class="query-form" data-aos="fade-up">
         <h2 class="query-form-title">Send a Query</h2>
@@ -728,7 +866,24 @@
         <p>© 2025 Employment-Centric Hypothesis Testing Framework</p>
         <p class="contribute">Technical Seminar  </p>
       </div>
-      <span class="venkey-remark">Developed by venkatesh</span>
+      <span class="venkey-remark" style="
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        font-size: 0.88rem;
+        color: #fff;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        opacity: 0.75;
+        z-index: 9999;
+        user-select: none;
+        pointer-events: none;
+        font-family: 'Inter', sans-serif;
+      ">Developed by venkatesh</span>
     </div>
   </footer>
 
